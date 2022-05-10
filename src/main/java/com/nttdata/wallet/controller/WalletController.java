@@ -18,6 +18,7 @@ import com.nttdata.wallet.entity.Wallet;
 import com.nttdata.wallet.model.Card;
 import com.nttdata.wallet.model.CardResponse;
 import com.nttdata.wallet.model.CardWallet;
+import com.nttdata.wallet.model.MovementWalletResponse;
 import com.nttdata.wallet.model.WalletResponse;
 import com.nttdata.wallet.service.WalletService;
 
@@ -91,6 +92,16 @@ public class WalletController {
 	public Mono<ResponseEntity<CardResponse>> associateYourWallet(@RequestBody CardWallet cardWallet) {
 		return walletService.associateYourWallet(cardWallet).map(_cardWallet -> ResponseEntity.ok().body(_cardWallet))
 				.onErrorResume(e -> {
+					log.info("Error:" + e.getMessage());
+					return Mono.just(ResponseEntity.badRequest().build());
+				});
+	}
+
+	@PostMapping("/walletTransaction")
+	public Mono<ResponseEntity<MovementWalletResponse>> walletTransaction(
+			@RequestBody MovementWalletResponse movementWalletResponse) {
+		return walletService.walletTransaction(movementWalletResponse)
+				.map(_walletTransaction -> ResponseEntity.ok().body(_walletTransaction)).onErrorResume(e -> {
 					log.info("Error:" + e.getMessage());
 					return Mono.just(ResponseEntity.badRequest().build());
 				});
