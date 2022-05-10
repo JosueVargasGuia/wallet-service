@@ -5,6 +5,7 @@ import com.nttdata.wallet.entity.Wallet;
 import com.nttdata.wallet.model.Card;
 import com.nttdata.wallet.model.CardResponse;
 import com.nttdata.wallet.model.CardWallet;
+import com.nttdata.wallet.model.MovementWalletResponse;
 import com.nttdata.wallet.model.WalletResponse;
 
 import reactor.core.publisher.Flux;
@@ -35,4 +36,6 @@ public interface WalletService {
 	/** Methodo que se encarga de asociar una cuenta bancaria al monedero */
 	Mono<CardResponse> associateYourWallet(CardWallet cardWallet);
 
+	/** Methodo que se encarga de iniciar una transferencia */
+	Mono<MovementWalletResponse> walletTransaction(MovementWalletResponse movementWalletResponse);
 }
