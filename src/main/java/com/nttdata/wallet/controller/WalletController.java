@@ -71,12 +71,16 @@ public class WalletController {
 
 	@DeleteMapping("/{idWallet}")
 	public Mono<ResponseEntity<Void>> delete(@PathVariable(name = "idWallet") Long idWallet) {
-		Wallet wallet = walletService.findById(idWallet).blockOptional().orElse(null);
+		Mono<Wallet> _wallet = walletService.findById(idWallet);
+		_wallet.subscribe();
+		Wallet wallet=_wallet.toFuture().join();
 		if (wallet != null) {
 			return walletService.delete(idWallet).map(r -> ResponseEntity.ok().<Void>build());
 		} else {
 			return Mono.just(ResponseEntity.noContent().build());
-		}
+		} 
+				
+	 
 	}
 
 	@PostMapping("/registerWallet")
