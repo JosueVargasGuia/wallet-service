@@ -45,7 +45,7 @@ class WalletServiceApplicationTests {
 		var walletMono = Mono.just(nWallet);
 		when(walletService.save(nWallet)).thenReturn(walletMono);
 		webTestClient.post().uri("/api/v1/wallet").contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON).body(walletMono, Wallet.class).exchange().expectStatus()
+				.accept(MediaType.APPLICATION_JSON).body(Mono.just(nWallet), Wallet.class).exchange().expectStatus()
 				.isCreated();
 	}
 
