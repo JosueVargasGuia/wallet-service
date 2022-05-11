@@ -1,0 +1,8 @@
+com.nttdata.wallet
+com.nttdata.wallet.consumer
+com.nttdata.wallet.controller
+com.nttdata.wallet.entity
+com.nttdata.wallet.model
+com.nttdata.wallet.repository
+com.nttdata.wallet.service
+com.nttdata.wallet.service.impl
