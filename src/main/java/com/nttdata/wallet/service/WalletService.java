@@ -2,7 +2,6 @@
 package com.nttdata.wallet.service;
 
 import com.nttdata.wallet.entity.Wallet;
-import com.nttdata.wallet.model.Card;
 import com.nttdata.wallet.model.CardResponse;
 import com.nttdata.wallet.model.CardWallet;
 import com.nttdata.wallet.model.MovementWalletResponse;

@@ -10,12 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.nttdata.wallet.entity.AssociatedWallet;
 import com.nttdata.wallet.entity.Wallet;
-import com.nttdata.wallet.model.Card;
 import com.nttdata.wallet.model.CardResponse;
 import com.nttdata.wallet.model.CardWallet;
 import com.nttdata.wallet.model.CustomerWallet;

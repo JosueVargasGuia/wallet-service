@@ -1,9 +1,7 @@
 package com.nttdata.wallet.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
- 
 import com.nttdata.wallet.entity.Wallet;
 
 import lombok.AllArgsConstructor;
