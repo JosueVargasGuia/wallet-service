@@ -207,4 +207,10 @@ public class WalletServiceImpl implements WalletService {
 		movementWalletResponse.setMensaje(map);
 		return Mono.just(movementWalletResponse);
 	}
+
+	@Override
+	public Mono<Wallet> findByOne(Wallet wallet) {
+		// TODO Auto-generated method stub
+		return walletRepository.findOne(Example.of(wallet));
+	}
 }

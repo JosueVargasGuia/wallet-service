@@ -38,4 +38,5 @@ public interface WalletService {
 
 	/** Methodo que se encarga de iniciar una transferencia */
 	Mono<MovementWalletResponse> walletTransaction(MovementWalletResponse movementWalletResponse);
+	Mono<Wallet> findByOne(Wallet wallet);
 }
